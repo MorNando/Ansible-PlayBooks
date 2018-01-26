@@ -1,11 +1,11 @@
 --- # This is a test to create a file on a windows server using ansible and jenkins
 
-  - name: Create directory structure
+  - name: Create directory called test in the root of c drive
     win_file:
       path: C:\Test
       state: directory
 
-  - name: Touch a file (creates if not present, updates modification time if present)
+  - name: Touch a file called test.txt (creates if not present, updates modification time if present)
     win_file:
       path: C:\Test\test.text
       state: touch
