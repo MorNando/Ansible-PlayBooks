@@ -1,0 +1,9 @@
+---
+- name: Clone and update git repo
+  tasks:
+   - git:
+       repo: 'https://github.com/MorNando/Ansible-PlayBooks.git'
+       dest: /etc/ansible/
+       clone: yes
+       update: yes
+
