@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+from ansible_vault import Vault
+
+vault = Vault('TestingPass2018')
+print vault.load(open('/etc/ansible/windowsautomation/vars_and_pswds').read())
 
 import os
 import sys
@@ -20,9 +24,9 @@ except ImportError:
 # rely on environmental variables (Takes precedence over explicitly defined options), eg:
 #   user = os.getenv('LDAP_PASS','mypassword123!')
 fallback_args  = dict(
-    ldapuri = os.getenv('LDAP_URI','ldap://dc01.mydomain.local'),
-    user = os.getenv('LDAP_USER','CN=AnsibleRunner,OU=Service Accounts,DC=MyDomain,DC=local'),
-    password = os.getenv('LDAP_PASS','mysupersecretamazingpasswordhere'),
+    ldapuri = os.getenv('LDAP_URI','ldap://{{domain_name}}'),
+    user = os.getenv('{{LDAP_USER','{{svc_winaccountoupath}}}}'),
+    password = os.getenv('LDAP_PASS','{{svc_password}}'),
 )
 
 class AnsibleInventoryLDAP(object):

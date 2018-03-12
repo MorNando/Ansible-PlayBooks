@@ -6,7 +6,7 @@ import os
 # Path to the master script
 scriptpath = "/etc/ansible/dynamic_inventories/ansible_ad.py"
 # The DN of the OU in which to search
-basedn = "OU=Production Servers,OU=Member servers,DC=mydomain,DC=local"
+basedn = "{{baseoupath}}"
 
 # Any custom args to pass to master script
 # (Run the master script with -h for a list)
