@@ -17,8 +17,13 @@
      win_service:
        name: spooler
        state: started
-       
+
    - name: ensure SplashtopRemoteService is started
      win_service:
        name: SplashtopRemoteService
        state: started
+       
+   - name: Warn logged in users of impending upgrade
+     win_msg:
+       display_seconds: 60
+       msg: Automated upgrade about to start.  Please save your work and log off before 20:00
