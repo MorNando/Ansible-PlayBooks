@@ -10,3 +10,7 @@
      win_chocolatey:
        name: VisualStudioCode
        state: latest
+   - name: ensure print spooler service is started
+     win_service:
+       name: spooler
+       state: started
