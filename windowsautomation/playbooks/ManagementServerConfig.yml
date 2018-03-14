@@ -1,5 +1,5 @@
 --- #Configuration for the AD/SCCM/ManagementServer
-- hosts: ADServer
+- hosts: adserver
   gather_facts: no
   tasks:
    - name: Install Git
