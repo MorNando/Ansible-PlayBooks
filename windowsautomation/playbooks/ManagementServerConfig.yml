@@ -1,0 +1,12 @@
+--- #Configuration for the AD/SCCM/ManagementServer
+- hosts: ADServer
+  gather_facts: no
+  tasks:
+   - name: Install Git
+     win_chocolatey:
+       name: git
+       state: latest
+   - name: Install Visual Studio Code
+     win_chocolatey:
+       name: VisualStudioCode
+       state: latest
