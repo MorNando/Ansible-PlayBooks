@@ -3,6 +3,13 @@
 - hosts: adserver
   gather_facts: no
   tasks:
+   - name: Installing windows updates
+     win_updates:
+      category_names:
+        - SecurityUpdates
+        - CriticalUpdates
+        - UpdateRollups
+  
    - name: Install Git
      win_chocolatey:
        name: git
@@ -22,8 +29,18 @@
      win_service:
        name: SplashtopRemoteService
        state: started
-       
+
    - name: Warn logged in users of impending upgrade
      win_msg:
        display_seconds: 60
        msg: Automated upgrade about to start.  Please save your work and log off before 20:00
+
+   - name: Create directory called test in the root of c drive
+     win_file:
+       path: C:\Test
+       state: directory
+   
+   - name: Touch a file called test.txt (creates if not present, updates modification time if present)
+     win_file:
+       path: C:\Test\test.text
+       state: touch
