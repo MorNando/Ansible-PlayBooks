@@ -33,7 +33,12 @@
        path: C:\Test
        state: directory
    
-   - name: Touch a file called test.txt (creates if not present, updates modification time if present)
+   - name: Add a file called test.txt (creates if not present, updates modification time if present)
+     win_file:
+       path: C:\Test\test.txt
+       state: touch
+
+   - name: Removes test.text if it exists as created in error
      win_file:
        path: C:\Test\test.text
-       state: touch
+       state: absent
