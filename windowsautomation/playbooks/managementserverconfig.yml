@@ -3,13 +3,6 @@
 - hosts: adserver
   gather_facts: no
   tasks:
-   - name: Installing windows updates
-     win_updates:
-      category_names:
-        - SecurityUpdates
-        - CriticalUpdates
-        - UpdateRollups
-  
    - name: Install Git
      win_chocolatey:
        name: git
