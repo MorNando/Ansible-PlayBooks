@@ -1,4 +1,5 @@
 --- #Configuration for the AD/SCCM/ManagementServer
+
 - hosts: adserver
   gather_facts: no
   tasks:
@@ -6,11 +7,18 @@
      win_chocolatey:
        name: git
        state: latest
+
    - name: Install Visual Studio Code
      win_chocolatey:
        name: VisualStudioCode
        state: latest
+
    - name: ensure print spooler service is started
      win_service:
        name: spooler
+       state: started
+       
+   - name: ensure SplashtopRemoteService is started
+     win_service:
+       name: SplashtopRemoteService
        state: started
