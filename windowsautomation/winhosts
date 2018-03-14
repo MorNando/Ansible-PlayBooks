@@ -2,8 +2,8 @@
 ls-ad01.LS.CO.UK
 
 [adserver:vars]
-ansible_user=svc_ansible@LS.CO.UK
-ansible_password=Laurie!23_ls
+ansible_user=svc_ansible
+ansible_password=Password123
 ansible_connection=winrm
 ansible_port=5985
 ansible_winrm_transport=kerberos
@@ -16,8 +16,8 @@ LS-WINTEST04.LS.CO.UK
 LS-WINTEST05.LS.CO.UK
 
 [wintest:vars]
-ansible_user=chrismorland@LS.CO.UK
-ansible_password=Laurie!23_ls
+ansible_user=svc_ansible
+ansible_password=Password123
 ansible_connection=winrm
 ansible_port=5985
 ansible_winrm_transport=kerberos
