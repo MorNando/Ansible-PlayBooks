@@ -1,5 +1,5 @@
-$targetOU = "OU=Main,DC=LS,DC=co,DC=uk"
-$VMName = 'LS-WINTEST04'
+$targetOU = ""
+$VMName = ''
 
 Function Move-VMtoAnotherOU {
     param(
