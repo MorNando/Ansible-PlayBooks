@@ -1,0 +1,44 @@
+--- #Configuration for the AD/SCCM/ManagementServer
+
+- hosts: adserver
+  gather_facts: no
+  tasks:
+   - name: Install Git
+     win_chocolatey:
+       name: git
+       state: latest
+
+   - name: Install Visual Studio Code
+     win_chocolatey:
+       name: VisualStudioCode
+       state: latest
+
+   - name: ensure print spooler service is started
+     win_service:
+       name: spooler
+       state: started
+
+   - name: ensure SplashtopRemoteService is started
+     win_service:
+       name: SplashtopRemoteService
+       state: started
+
+#   - name: Warn logged in users of impending upgrade
+#     win_msg:
+#       display_seconds: 60
+#       msg: Automated upgrade about to start.  Please save your work and log off before 20:00
+
+   - name: Create directory called test in the root of c drive
+     win_file:
+       path: C:\Test
+       state: directory
+   
+   - name: Add a file called test.txt (creates if not present, updates modification time if present)
+     win_file:
+       path: C:\Test\test.txt
+       state: touch
+
+   - name: Removes test.text if it exists as created in error
+     win_file:
+       path: C:\Test\test.text
+       state: absent
