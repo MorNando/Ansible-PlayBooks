@@ -42,3 +42,13 @@
      win_file:
        path: C:\Test\test.text
        state: absent
+
+   - name: Install Packer
+     win_chocolatey:
+       name: Packer
+       state: latest
+  
+   - name: Install Terraform
+     win_chocolatey:
+       name: Terraform
+       state: latest
