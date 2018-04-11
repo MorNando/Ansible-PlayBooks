@@ -13,7 +13,7 @@
        name: VisualStudioCode
        state: latest
 
-   - name: Install ProcMon
+   - name: Remove ProcMon
      win_chocolatey:
        name: ProcMon
        state: absent
