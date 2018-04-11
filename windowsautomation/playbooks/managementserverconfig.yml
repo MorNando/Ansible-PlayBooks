@@ -13,7 +13,7 @@
        name: VisualStudioCode
        state: latest
 
-   - name: Installing ProcMon
+   - name: Installing ProcMon Test
      win_chocolatey:
        name: ProcMon
        state: latest
