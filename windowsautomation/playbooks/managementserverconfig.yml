@@ -18,10 +18,10 @@
        name: VisualStudioCode
        state: latest
 
-   - name: Remove ProcMon
+   - name: Installing ProcMon test
      win_chocolatey:
        name: ProcMon
-       state: absent
+       state: latest
 
    - name: ensure print spooler service is started
      win_service:
@@ -47,11 +47,6 @@
      win_file:
        path: C:\Test\test.txt
        state: touch
-
-   - name: Removes test.text if it exists as created in error
-     win_file:
-       path: C:\Test\test.text
-       state: absent
 
    - name: Install Packer
      win_chocolatey:
