@@ -13,10 +13,10 @@
        name: VisualStudioCode
        state: latest
 
-   - name: Installing ProcMon Check
+   - name: Removing ProcMon
      win_chocolatey:
        name: ProcMon
-       state: latest
+       state: absent
 
    - name: ensure print spooler service is started
      win_service:
