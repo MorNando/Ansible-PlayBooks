@@ -3,11 +3,6 @@
 - hosts: adserver
   gather_facts: no
   tasks:
-   - name: Install ProcMon
-     win_chocolatey:
-       name: procmon
-       state: latest
-
    - name: Install Git
      win_chocolatey:
        name: git
