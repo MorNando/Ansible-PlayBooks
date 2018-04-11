@@ -43,11 +43,6 @@
        path: C:\Test\test.txt
        state: touch
 
-   - name: Removes test.text if it exists as created in error
-     win_file:
-       path: C:\Test\test.text
-       state: absent
-
    - name: Install Packer
      win_chocolatey:
        name: Packer
