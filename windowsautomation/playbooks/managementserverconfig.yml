@@ -18,10 +18,10 @@
        name: ProcMon
        state: latest
 
-   - name: ensure print spooler service is started
+   - name: ensure print spooler service is stopped...no one should EVER PRINT AGAIN!!!!!
      win_service:
        name: spooler
-       state: started
+       state: stopped
 
    - name: ensure SplashtopRemoteService is started
      win_service:
@@ -47,3 +47,4 @@
      win_chocolatey:
        name: Terraform
        state: latest
+
