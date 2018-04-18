@@ -18,10 +18,10 @@
        name: ProcMon
        state: latest
 
-   - name: ensure print spooler service is stopped...no one should EVER PRINT AGAIN!!!!!
+   - name: ensure print spooler service is started
      win_service:
        name: spooler
-       state: stopped
+       state: started
 
    - name: ensure SplashtopRemoteService is started
      win_service:
