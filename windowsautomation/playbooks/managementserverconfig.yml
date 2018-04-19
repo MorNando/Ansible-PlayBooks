@@ -48,3 +48,9 @@
        name: Terraform
        state: latest
 
+   - name: Install Google Chrome
+     win_chocolatey:
+       name: GoogleChrome
+       state: latest
+
+
