@@ -53,4 +53,11 @@
        name: GoogleChrome
        state: latest
 
+- name: Add or update registry path MyCompany, with expand string entry 'hello'
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main
+    name: 'Start Page'
+    data: 'http://www.google.co.uk'
+    type: string
+
 
