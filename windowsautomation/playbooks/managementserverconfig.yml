@@ -16,7 +16,7 @@
    - name: Installing ProcMon test
      win_chocolatey:
        name: ProcMon
-       state: latest
+       state: absent
 
    - name: ensure print spooler service is stopped
      win_service:
