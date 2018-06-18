@@ -21,7 +21,7 @@
    - name: ensure print spooler service is started
      win_service:
        name: spooler
-       state: started
+       state: stopped
 
    - name: ensure SplashtopRemoteService is started
      win_service:
@@ -53,11 +53,9 @@
        name: GoogleChrome
        state: latest
 
-   - name: Update homepage of browser to google.co.uk
+   - name: Update homepage of browser to bing
      win_regedit:
        path: HKLM:\SOFTWARE\Microsoft\Internet Explorer\Main
        name: 'Start Page'
-       data: 'http://www.bing.com'
+       data: 'http://www.google.co.uk'
        type: string
-
-
