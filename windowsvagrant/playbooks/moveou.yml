@@ -1,0 +1,12 @@
+---
+- hosts: adserver
+  gather_facts: no
+  tasks:
+   - name: Move Computer to another OU
+     script: /etc/ansible/windowsautomation/psscripts/movecomputer.ps1
+       
+  
+   - name: Install procmon
+     win_chocolatey:
+       name: procmon
+       state: absent
