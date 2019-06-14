@@ -1,0 +1,3 @@
+---
+- name: windows ping test
+  win_ping:

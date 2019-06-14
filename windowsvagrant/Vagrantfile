@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "mwrock/Windows2016"
+
+  config.vm.provider :virtualbox do |v|
+    v.memory = 4096
+    v.cpus = 2
+    v.gui = false
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--ioapic", "on"]
+  end
+
+  # AWX VM.
+  config.vm.define "windowsbox" do |windowsbox|
+    windowsbox.vm.hostname = "windowsbox"
+    windowsbox.vm.network :private_network, ip: "192.168.6.65"
+    config.vm.provision "shell", path: "ConfigureRemotingForAnsible.ps1"
+
+    windowsbox.vm.provision :ansible do |ansible|
+      ansible.compatibility_mode = "2.0"
+      ansible.playbook = "playbook.yml"
+      ansible.inventory_path = "inventory"
+    end
+  end
+
+end

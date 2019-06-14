@@ -1,0 +1,5 @@
+---
+- hosts: windowsbox
+  gather_facts: yes
+  roles:
+    - winping
